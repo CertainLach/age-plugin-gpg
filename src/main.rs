@@ -7,7 +7,7 @@ use age_plugin::identity::IdentityPluginV1;
 use age_plugin::recipient::Error as RecipientError;
 use age_plugin::recipient::RecipientPluginV1;
 use age_plugin::{PluginHandler, run_state_machine};
-use bech32::Variant;
+use bech32::{Bech32, Hrp};
 use clap::{CommandFactory, Parser};
 use sequoia_gpg_agent::{Agent, KeyPair};
 use sequoia_ipc::Keygrip;
@@ -364,16 +364,15 @@ fn main() -> Result<()> {
 	} else if let Some(cmd) = opts.cmd {
 		match cmd {
 			Command::ExportKeygrip { keygrip } => {
-				use bech32::ToBase32;
 				let keygripid: Keygrip = keygrip.parse()?;
 				let keygripbytes = hex::decode(keygripid.to_string()).expect("keygrip is hex");
 
 				Handle::current().block_on(fetch_key(&mut agent, keygripid))?;
 
+				let hrp = Hrp::parse("age1gpg").expect("valid hrp");
 				println!(
 					"{}",
-					bech32::encode("age1gpg", keygripbytes.to_base32(), Variant::Bech32)
-						.expect("hrp is valid")
+					bech32::encode::<Bech32>(hrp, &keygripbytes).expect("hrp is valid")
 				);
 			}
 		}

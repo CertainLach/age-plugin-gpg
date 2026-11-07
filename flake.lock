@@ -2,10 +2,10 @@
   "nodes": {
     "crane": {
       "locked": {
-        "lastModified": 1759893430,
+        "lastModified": 1793836618,
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "1979a2524cb8c801520bd94c38bb3d5692419d93",
+        "rev": "79fd63528501446749c09f08cad486a58c7d173e",
         "type": "github"
       },
       "original": {
@@ -21,10 +21,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1759362264,
+        "lastModified": 1793576659,
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "758cf7296bee11f1706a574c77d072b8a7baa881",
+        "rev": "ea2630b7470978622c7689a1ff75d2b389175399",
         "type": "github"
       },
       "original": {
@@ -35,15 +35,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1760392495,
+        "lastModified": 1794091716,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4c0426efac242de67c7ae62b463df08f7d12a462",
+        "rev": "080ece231babd664d2a6de78aac931ea350bd725",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-25.05",
+        "ref": "release-26.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -64,10 +64,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1760323082,
+        "lastModified": 1794040562,
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "c73e6874fe8dce0bab82c0387b510875f1eff9f8",
+        "rev": "d3fe74269f2a6652437e21e78eb7e83be81f6982",
         "type": "github"
       },
       "original": {
@@ -78,10 +78,10 @@
     },
     "shelly": {
       "locked": {
-        "lastModified": 1756323923,
+        "lastModified": 1793404176,
         "owner": "CertainLach",
         "repo": "shelly",
-        "rev": "b5dd29a500db04f54a9f1c2bf81cdd84df8b0cd7",
+        "rev": "69940450091885fab17a5e6e06428a2d3edfd4c0",
         "type": "github"
       },
       "original": {

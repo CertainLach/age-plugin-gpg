@@ -2,7 +2,7 @@
   description = "Age plugin utilizing gpg-agent";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-26.05";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,11 +26,8 @@
 
         perSystem =
           {
-            config,
             system,
             pkgs,
-            self,
-            inputs',
             ...
           }:
           let
@@ -40,6 +37,7 @@
             sharedDependencies = with pkgs; [ nettle ];
             sharedBuildDependencies = with pkgs; [
               pkg-config
+              capnproto
               rustPlatform.bindgenHook
             ];
           in
@@ -64,14 +62,13 @@
 
             shelly.shells.default = {
               factory = craneLib.devShell;
+              buildInputs = sharedDependencies;
               packages =
                 with pkgs;
                 [
-                  nettle
                   rust
                   rage
                 ]
-                ++ sharedDependencies
                 ++ sharedBuildDependencies;
               shellHook = ''
                 export PATH=$PATH:$PWD/target/debug
